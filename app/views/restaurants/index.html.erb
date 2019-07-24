@@ -1,8 +1,20 @@
-<h1>Here is a list of all the restaurants</h1>
+  <div class="container">
+    <h1>List Of Restaurants</h1>
+  </div>
+</div>
 
+<div class="cards">
+    <div class="row">
 <% @restaurants.each do |restaurant| %>
-  <h3><%= restaurant.name %></h3>
-  <h4><%= restaurant.address %></h4>
-  <h4><%= restaurant.category %></h4>
-  <h6><%= restaurant.phone_number %></h6>
-<% end %>
+    <div class="col-4">
+    <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+    <h4><%= restaurant.address %></h4>
+    <h4><%= restaurant.category %></h4>
+    <h6><%= restaurant.phone_number %></h6>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+
+<%= link_to "add a new restaurant", new_restaurant_path %>

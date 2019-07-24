@@ -1,1 +1,13 @@
-new.html.erb
+<h1>Add a Review</h1>
+
+<!-- @restaurant refers to the restaurant ID that is is reviewing for-->
+
+<!-- Helper             HTTP request
+`form_for(@review)` =>  POST `reviews_path`
+`form_for([@restaurant, @review])` => POST `restaurant_reviews_path`
+ -->
+<%= simple_form_for [@restaurant, @review] do |f| %>
+<%= f.input :content, error: 'content cannot be empty'%>
+<%= f.input :rating, error: 'rating must be between 0-5' %>
+<%= f.submit %>
+<% end %>
